@@ -1,12 +1,11 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "package.json", "use": "@vercel/static-build" },
-      { "src": "/server/index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "source": "/contacts/(.*)", "destination": "/server/index.js" },
-      { "source": "(.*)", "destination": "/index.html" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build" },
+    { "src": "server/index.js", "use": "@vercel/node" }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/server/index.js" },
+    { "source": "(.*)", "destination": "/dist/index.html" }
+  ]
+}
