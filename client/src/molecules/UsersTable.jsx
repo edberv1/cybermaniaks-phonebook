@@ -38,7 +38,7 @@ const UsersTable = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/contacts");
+        const response = await axios.get("/api/contacts");
         setUsers(response.data);
       } catch (error) {
         console.error("Could not fetch contacts:", error);
