@@ -29,7 +29,10 @@ const AddContactModal = ({ isOpen, onRequestClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/contacts");
+      const response = await axios.post(
+        "http://localhost:8080/contacts",
+        contact
+      );
       console.log(response.data);
       setContact({
         name: "",
@@ -40,7 +43,7 @@ const AddContactModal = ({ isOpen, onRequestClose }) => {
         emails: [""],
         numbers: [""],
       });
-      
+
       onRequestClose();
     } catch (error) {
       console.error("Could not save contact:", error);
